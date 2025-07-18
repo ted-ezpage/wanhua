@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍山寺 & 華西街夜市：文化與美食饗宴 | Lungshan Temple & Huaxi Street Market</title>
+    <meta name="description" content="探索台北最古老的寺廟龍山寺、漫步於剝皮寮歷史街區，並在華西街夜市品嚐米其林小吃。一個結合文化、歷史與美食的完美旅程。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #1A237E; /* Deep Indigo */
+            --secondary-color: #D4AF37; /* Gold */
+            --accent-color: #C62828; /* Vibrant Red */
+            --light-bg-color: #F5F5F5;
+            --dark-text-color: #212121;
+            --light-text-color: #FFFFFF;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', 'Noto Sans TC', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text-color);
+            background-color: var(--light-bg-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lato', 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--light-text-color);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #424242;
+        }
+
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .alt-bg {
+            background-color: #FFFFFF;
+        }
+
+        /* --- Header & Hero Section --- */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544824022-a7d3a4df64b4?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--light-text-color);
+        }
+
+        .lang-switcher .lang-btn {
+            color: var(--light-text-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid transparent;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .lang-switcher .lang-btn.active,
+        .lang-switcher .lang-btn:hover {
+            border-color: var(--secondary-color);
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--light-text-color);
+            font-weight: 400;
+        }
+
+        /* --- Card Layout --- */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* --- NEW: Visitor Tips Section --- */
+        .tips-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .tip-card {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+        .tip-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tip-card i {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+        .tip-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tip-card li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .tip-card li::before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- NEW: Nearby Section --- */
+        .nearby-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nearby-content img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        /* --- Transportation Section --- */
+        .transport-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .transport-map iframe {
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .transport-method {
+            margin-bottom: 2rem;
+        }
+
+        .transport-method h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        .transport-method i {
+            font-size: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* --- Responsive Design (RWD) --- */
+        @media (min-width: 768px) {
+            .transport-info { grid-template-columns: 1fr 1fr; }
+            .tips-container { grid-template-columns: 1fr 1fr; }
+            .nearby-content { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 767px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .content-section { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Hero Section -->
+    <header class="hero-section">
+        <nav class="navbar">
+            <div class="logo">探索萬華 | Explore Wanhua</div>
+            <div class="lang-switcher">
+                <a onclick="switchLanguage('zh')" class="lang-btn active" id="lang-zh">中</a>
+                <a onclick="switchLanguage('en')" class="lang-btn" id="lang-en">EN</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1 data-zh="龍山寺與華西街夜市" data-en="Lungshan Temple & Huaxi Street Market">龍山寺與華西街夜市</h1>
+            <p data-zh="一場文化、歷史與美食的饗宴" data-en="A Feast of Culture, History, and Senses">一場文化、歷史與美食的饗宴</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Lungshan Temple Section -->
+        <section id="lungshan-temple" class="content-section alt-bg">
+            <h2 data-zh="艋舺龍山寺：信仰與藝術的殿堂" data-en="Lungshan Temple: A Palace of Faith and Art">艋舺龍山寺：信仰與藝術的殿堂</h2>
+            <div class="card-container">
+                <!-- History Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1595299435202-a8d38c114389?q=80&w=2070&auto=format&fit=crop" alt="龍山寺的香爐與虔誠的信徒">
+                    <div class="card-body">
+                        <h3 data-zh="歷史沿革" data-en="History & Culture">歷史沿革</h3>
+                        <p data-zh="建於1738年，由福建泉州移民興建，是台北最古老的寺廟之一。這裡不僅是萬華地區的信仰中心，也曾是早期移民議事、訴訟的仲裁地，見證了「一府二鹿三艋舺」的風華歲月。歷經天災與二戰轟炸，多次重建仍屹立不搖，其中觀音菩薩聖像在轟炸中奇蹟倖存，更增添其傳奇色彩。" data-en="Built in 1738 by settlers from Fujian, China, it's one of Taipei's most revered and historic temples. It has served as a spiritual heart for the Wanhua district and a gathering place for early Chinese settlers. The temple has withstood numerous natural disasters and wartime destruction, symbolizing resilience and faith. Miraculously, the main statue of Guanyin survived a direct hit during a WWII bombing, a story that deepens its spiritual significance.">建於1738年，由福建泉州移民興建，是台北最古老的寺廟之一。這裡不僅是萬華地區的信仰中心，也曾是早期移民議事、訴訟的仲裁地，見證了「一府二鹿三艋舺」的風華歲月。歷經天災與二戰轟炸，多次重建仍屹立不搖，其中觀音菩薩聖像在轟炸中奇蹟倖存，更增添其傳奇色彩。</p>
+                    </div>
+                </div>
+                <!-- Architecture Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1624923424883-424d3a243a41?q=80&w=1935&auto=format&fit=crop" alt="龍山寺屋頂上精美的剪黏藝術">
+                    <div class="card-body">
+                        <h3 data-zh="建築之美" data-en="Architectural Beauty">建築之美</h3>
+                        <p data-zh="龍山寺為中國古典三進四合院的宮殿式建築，被譽為台灣寺廟藝術的精華。其特色包含全台唯一的銅鑄龍柱、不用一釘一鐵的螺旋藻井，以及屋頂上色彩瑰麗的剪黏與交趾陶。每個角落都充滿精雕細琢的石雕與木雕，敘說著古老的神話與歷史故事。" data-en="The temple is a masterpiece of traditional Chinese palace-style architecture, featuring three halls in a courtyard layout. Highlights include Taiwan's only pair of bronze dragon pillars, an intricate octagonal caisson ceiling constructed without nails, and vibrant ceramic and mosaic decorations on the roof telling folkloric tales. Every detail showcases exquisite craftsmanship.">龍山寺為中國古典三進四合院的宮殿式建築，被譽為台灣寺廟藝術的精華。其特色包含全台唯一的銅鑄龍柱、不用一釘一鐵的螺旋藻井，以及屋頂上色彩瑰麗的剪黏與交趾陶。每個角落都充滿精雕細琢的石雕與木雕，敘說著古老的神話與歷史故事。</p>
+                    </div>
+                </div>
+                <!-- Deities Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1696082987110-3e085c9f5631?q=80&w=1964&auto=format&fit=crop" alt="龍山寺後殿供奉的眾多神明">
+                    <div class="card-body">
+                        <h3 data-zh="祀奉神明" data-en="Main Deities">祀奉神明</h3>
+                        <p data-zh="主祀觀世音菩薩，後殿則供奉媽祖、關聖帝君、文昌帝君及月下老人等超過100尊神明。這種儒、釋、道三教合一的特色，充分展現了台灣民間信仰的包容性。無論是求學業、求姻緣或求平安，信眾都能在此找到心靈的寄託。" data-en="The temple primarily honors Guanyin (the Bodhisattva of Compassion), but its rear hall houses over 100 other deities from Buddhist, Taoist, and folk traditions. These include Mazu (Goddess of the Sea), Guan Yu (God of War), and Yue Lao (the Matchmaking God), reflecting the inclusive nature of Taiwanese faith.">主祀觀世音菩薩，後殿則供奉媽祖、關聖帝君、文昌帝君及月下老人等超過100尊神明。這種儒、釋、道三教合一的特色，充分展現了台灣民間信仰的包容性。無論是求學業、求姻緣或求平安，信眾都能在此找到心靈的寄託。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Huaxi Street Night Market Section -->
+        <section id="huaxi-market" class="content-section">
+            <h2 data-zh="華西街夜市：舌尖上的台灣" data-en="Huaxi Street Night Market: A Taste of Taiwan">華西街夜市：舌尖上的台灣</h2>
+            <div class="card-container">
+                <!-- History Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1579581124639-4c745f750a1c?q=80&w=2070&auto=format&fit=crop" alt="華西街夜市入口的傳統牌樓">
+                    <div class="card-body">
+                        <h3 data-zh="歷史與特色" data-en="History & Features">歷史與特色</h3>
+                        <p data-zh="華西街夜市是台灣第一座觀光夜市，入口處的傳統牌樓建築與高掛的紅燈籠是其標誌。過去因販售蛇湯而有「蛇街」之稱，如今雖已不見現場殺蛇表演，但這段歷史仍為人津津樂道。除了美食，這裡還有許多腳底按摩店，是放鬆身心的好去處。" data-en="As Taiwan's first-ever tourist night market, Huaxi Street is famous for its iconic traditional Chinese archway entrance adorned with red lanterns. It was once widely known as 'Snake Alley' for its snake soup restaurants. While live performances are a thing of the past, the market's vibrant history remains. Today, it's also a popular spot for foot massages.">華西街夜市是台灣第一座觀光夜市，入口處的傳統牌樓建築與高掛的紅燈籠是其標誌。過去因販售蛇湯而有「蛇街」之稱，如今雖已不見現場殺蛇表演，但這段歷史仍為人津津樂道。除了美食，這裡還有許多腳底按摩店，是放鬆身心的好去處。</p>
+                    </div>
+                </div>
+                <!-- Michelin Food Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1604329225313-028433434b3e?q=80&w=1974&auto=format&fit=crop" alt="一碗熱騰騰的滷肉飯">
+                    <div class="card-body">
+                        <h3 data-zh="米其林必比登推薦" data-en="Michelin Bib Gourmand Picks">米其林必比登推薦</h3>
+                        <p data-zh="華西街夜市是美食老饕的尋寶地，擁有多家米其林必比登推薦的店家。「小王煮瓜」的黑金滷肉飯香氣濃郁；「源芳刈包」的五花肉軟嫩多汁；「兩喜號」的百年魷魚羹料好實在；「北港甜湯」的燒麻糬更是不可錯過的古早味甜點。" data-en="Huaxi Street is a treasure trove for foodies, boasting several Michelin Bib Gourmand recommendations. Don't miss the 'black gold' braised pork rice at Wang's Broth, the tender pork belly bun at Yuan Fang Guabao, the century-old squid thick soup at Liang Xi Hao, or the classic hot mochi dessert at Beigang Sweet Soup.">華西街夜市是美食老饕的尋寶地，擁有多家米其林必比登推薦的店家。「小王煮瓜」的黑金滷肉飯香氣濃郁；「源芳刈包」的五花肉軟嫩多汁；「兩喜號」的百年魷魚羹料好實在；「北港甜湯」的燒麻糬更是不可錯過的古早味甜點。</p>
+                    </div>
+                </div>
+                <!-- More Food Card -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1623341214835-a6a48d949960?q=80&w=1964&auto=format&fit=crop" alt="夜市裡各式各樣的台灣小吃攤位">
+                    <div class="card-body">
+                        <h3 data-zh="更多在地美味" data-en="More Local Delicacies">更多在地美味</h3>
+                        <p data-zh="除了米其林推薦，這裡還有數不盡的傳統美味。從新鮮的海產熱炒、台南擔仔麵到古早味的青草茶，每一攤都承載著數十年的好手藝。穿梭在熱鬧的街道中，探索屬於您自己的美食清單吧！" data-en="Beyond the Michelin picks, the market is filled with countless other traditional delights. From fresh seafood stir-fries and Tainan Danzai noodles to herbal teas, many vendors have been perfecting their craft for decades. Wander through the bustling lanes and create your own culinary adventure!">除了米其林推薦，這裡還有數不盡的傳統美味。從新鮮的海產熱炒、台南擔仔麵到古早味的青草茶，每一攤都承載著數十年的好手藝。穿梭在熱鬧的街道中，探索屬於您自己的美食清單吧！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Visitor Tips Section -->
+        <section id="tips" class="content-section alt-bg">
+            <h2 data-zh="遊客小貼士" data-en="Helpful Visitor Tips">遊客小貼士</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <h3><i class="fas fa-praying-hands"></i><span data-zh="參觀龍山寺" data-en="Visiting Lungshan Temple">參觀龍山寺</span></h3>
+                    <ul>
+                        <li data-zh="衣著得體：請避免穿著過於暴露的衣物，以示對神明的尊敬。" data-en="Dress respectfully: Avoid overly revealing clothing like tank tops or short shorts out of respect for the sacred site.">衣著得體：請避免穿著過於暴露的衣物，以示對神明的尊敬。</li>
+                        <li data-zh="遵循動線：傳統上，應由右側的「龍門」進入，左側的「虎門」出來。" data-en="Follow the flow: Traditionally, you should enter through the right gate (Dragon Gate) and exit through the left (Tiger Gate).">遵循動線：傳統上，應由右側的「龍門」進入，左側的「虎門」出來。</li>
+                        <li data-zh="保持安靜：寺廟是莊嚴的場所，請輕聲細語，不要大聲喧嘩。" data-en="Keep it quiet: The temple is a place of worship. Please speak softly and avoid loud conversations.">保持安靜：寺廟是莊嚴的場所，請輕聲細語，不要大聲喧嘩。</li>
+                        <li data-zh="拍照禮儀：可以拍照，但請避免使用閃光燈，並不要對著正在參拜的信徒近距離拍攝。" data-en="Photo etiquette: Photography is allowed, but avoid using flash and be mindful not to disturb worshippers.">拍照禮儀：可以拍照，但請避免使用閃光燈，並不要對著正在參拜的信徒近距離拍攝。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-utensils"></i><span data-zh="暢遊夜市" data-en="Enjoying the Night Market">暢遊夜市</span></h3>
+                    <ul>
+                        <li data-zh="攜帶現金：多數攤販只接受現金，準備一些小面額的鈔票會更方便。" data-en="Bring cash: Most vendors are cash-only. Having small bills makes transactions easier.">攜帶現金：多數攤販只接受現金，準備一些小面額的鈔票會更方便。</li>
+                        <li data-zh="空腹前往：這裡有太多美食，最好空著肚子來才能品嚐更多樣的選擇。" data-en="Go with an empty stomach: There are too many delicious options. Arrive hungry to maximize your tasting experience.">空腹前往：這裡有太多美食，最好空著肚子來才能品嚐更多樣的選擇。</li>
+                        <li data-zh="少量多樣：與朋友分享食物，這樣你們就可以用同樣的胃容量品嚐到更多種類的小吃。" data-en="Share and sample: Share food with friends. This allows you to try a wider variety of snacks without getting full too quickly.">少量多樣：與朋友分享食物，這樣你們就可以用同樣的胃容量品嚐到更多種類的小吃。</li>
+                        <li data-zh="邊走邊看：不要急著在第一個攤位就買，先完整走一圈，看看有哪些吸引你的東西。" data-en="Scout first: Don't just buy at the first stall you see. Take a walk around to see all the options before you decide.">邊走邊看：不要急著在第一個攤位就買，先完整走一圈，看看有哪些吸引你的東西。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Nearby Attractions Section -->
+        <section id="nearby" class="content-section">
+            <h2 data-zh="周邊景點探索" data-en="Explore Nearby">周邊景點探索</h2>
+            <div class="nearby-content">
+                <img src="https://images.unsplash.com/photo-1617153297399-7dd79b207994?q=80&w=2070&auto=format&fit=crop" alt="剝皮寮歷史街區的紅磚建築與老街風情">
+                <div>
+                    <h3 data-zh="剝皮寮歷史街區" data-en="Bopiliao Historical Block">剝皮寮歷史街區</h3>
+                    <p data-zh="就在龍山寺旁邊，這條保存完好的歷史街區，能讓您瞬間穿越時空，回到百年前的艋舺。紅磚瓦的騎樓、傳統的木窗櫺，混合了清代、日治及民國初期的建築風格。這裡不僅是拍照打卡的絕佳地點，街區內也常設有藝文展覽，為老空間注入新生命。" data-en="Just a stone's throw from Lungshan Temple, this well-preserved historical block instantly transports you back to old Monga. With its red-brick arcades and traditional wooden window frames, it showcases a mix of architectural styles from the Qing Dynasty, Japanese colonial era, and early Republic period. It's a fantastic spot for photos and often hosts art exhibitions, breathing new life into the historic space.">就在龍山寺旁邊，這條保存完好的歷史街區，能讓您瞬間穿越時空，回到百年前的艋舺。紅磚瓦的騎樓、傳統的木窗櫺，混合了清代、日治及民國初期的建築風格。這裡不僅是拍照打卡的絕佳地點，街區內也常設有藝文展覽，為老空間注入新生命。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transportation Section -->
+        <section id="transportation" class="content-section alt-bg">
+            <h2 data-zh="交通資訊" data-en="Transportation">交通資訊</h2>
+            <div class="transport-info">
+                <div class="transport-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.021833198634!2d121.4975587150063!3d25.03333318397279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9a84553c30f%3A0x22645a4df752a065!2z6b6N5bGv6b6N5bGv5a6u!5e0!3m2!1szh-TW!2stw!4v1678886456789!5m2!1szh-TW!2stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="transport-details">
+                    <div class="transport-method">
+                        <h3><i class="fas fa-subway"></i> <span data-zh="捷運 (MRT)" data-en="MRT">捷運 (MRT)</span></h3>
+                        <p data-zh="搭乘捷運板南線 (藍線) 至「龍山寺站」，由 1 號出口步行即可抵達龍山寺與華西街夜市。" data-en="Take the Bannan Line (Blue Line) to Longshan Temple Station (BL10). Both the temple and the night market are a short walk from Exit 1.">搭乘捷運板南線 (藍線) 至「龍山寺站」，由 1 號出口步行即可抵達龍山寺與華西街夜市。</p>
+                    </div>
+                    <div class="transport-method">
+                        <h3><i class="fas fa-train"></i> <span data-zh="火車 (TRA)" data-en="Train (TRA)">火車 (TRA)</span></h3>
+                        <p data-zh="搭乘火車至「萬華車站」，出站後沿康定路步行約 8-10 分鐘即可抵達。" data-en="Take the train to Wanhua Station. From there, it's an 8-10 minute walk along Kangding Road to the area.">搭乘火車至「萬華車站」，出站後沿康定路步行約 8-10 分鐘即可抵達。</p>
+                    </div>
+                    <div class="transport-method">
+                        <h3><i class="fas fa-bus"></i> <span data-zh="公車 (Bus)" data-en="Bus">公車 (Bus)</span></h3>
+                        <p data-zh="多條公車路線行經「龍山寺(西園)」或「萬華分局」站，下車後步行即可到達。" data-en="Numerous bus routes stop at 'Longshan Temple (Xiyuan)' or 'Wanhua Police Station', both within easy walking distance.">多條公車路線行經「龍山寺(西園)」或「萬華分局」站，下車後步行即可到達。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p data-zh="由 Gemini 為您精心打造 | 2025" data-en="Crafted for you by Gemini | 2025">由 Gemini 為您精心打造 | 2025</p>
+    </footer>
+
+    <!-- Simple JavaScript for Language Switching -->
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                // Check if the element is a list item to handle its content properly
+                if (el.tagName === 'LI' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'SPAN') {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        }
+    </script>
+
+</body>
+</html>
