@@ -1,324 +1,356 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>萬華龍山寺 & 華西街夜市 | Wanhua Longshan Temple & Huaxi Street Night Market</title>
+    <title>艋舺探索之旅 | A Tour in Monga</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* --- General Styles --- */
+        :root {
+            --primary-color: #8C1B1B; /* Temple Red */
+            --secondary-color: #D4AF37; /* Gold */
+            --dark-bg: #1a1a1a;
+            --text-color: #333;
+            --light-text: #f5f5f5;
+            --card-bg: #ffffff;
+            --divider: #e0e0e0;
         }
 
         body {
-            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: var(--text-color);
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
+        /* --- Header & Hero Section --- */
+        .hero {
+            position: relative;
+            height: 50vh;
+            background-image: url('https://i.imgur.com/4Q4yZAd.jpeg'); /* Placeholder Image: Lungshan Temple at night */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             color: white;
-            padding: 40px 0;
-            margin-bottom: 40px;
+            padding: 0 20px;
         }
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        /* --- Main Content --- */
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
         .section {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            background-color: var(--card-bg);
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
         .section-header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
-            color: white;
             padding: 20px;
-            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--light-text);
         }
 
+        .section-header .subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
         .section-header h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin: 5px 0 0 0;
+            color: white;
         }
 
+        .section-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
         .section-content {
-            padding: 30px;
-        }
-
-        .bilingual-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .lang-section {
             padding: 20px;
-            border-radius: 10px;
         }
 
+        .section-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .section-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .section-content p, .section-content ul {
+            font-size: 1rem;
+            margin-bottom: 1em;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section-content li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+        
+        .section-content li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+        
+        /* Language Toggle - BILINGUAL STYLES */
         .zh {
-            background: #f8f9ff;
-            border-left: 4px solid #667eea;
+            font-weight: 500;
         }
-
+        
         .en {
-            background: #fff8f0;
-            border-left: 4px solid #ffa500;
+            color: #555;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+        
+        .en::before {
+            content: '';
+            display: block;
+            height: 3px;
+        }
+        
+        .section-content li .zh {
+            display: block;
+        }
+        
+        .item-title {
+            font-weight: 700;
         }
 
-        .lang-section h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .lang-section p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .image-placeholder {
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1em;
+        /* --- Footer --- */
+        footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .highlight-item {
-            background: #f0f8ff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #667eea;
-        }
-
-        .highlight-item h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 40px 0;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .bilingual-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
             }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .section-header h2 {
-                font-size: 1.5em;
+            .hero p {
+                font-size: 1.4rem;
             }
         }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>萬華文化之旅 | Wanhua Cultural Journey</h1>
-            <p>探索台北最古老的廟宇與夜市文化 | Explore Taipei's Oldest Temple and Night Market Culture</p>
-        </div>
 
-        <div class="section">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="zh">週五夜晚的艋舺探險</span>
+                <span class="en">Friday Night in Monga</span>
+            </h1>
+            <p>
+                <span class="zh">一趟穿梭於心靈與味蕾的旅程</span>
+                <span class="en">A Journey for the Soul and the Palate</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Lungshan Temple Section -->
+        <section class="section">
             <div class="section-header">
-                <h2>艋舺龍山寺 | Longshan Temple</h2>
-                <p>台北最古老的寺廟之一 | One of Taipei's Oldest Temples</p>
+                <p class="subtitle">第一站 | Stop 1</p>
+                <h2>
+                    <span class="zh">艋舺龍山寺</span>
+                    <span class="en">Lungshan Temple</span>
+                </h2>
+            </div>
+            <img src="https://i.imgur.com/gK49sSM.jpeg" alt="Lungshan Temple architecture details" class="section-image">
+            <div class="section-content">
+                <h3>
+                    <span class="zh">文化背景介紹</span>
+                    <span class="en">Cultural Introduction</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><span class="item-title">悠久的歷史：</span>建於1738年，是台北最古老的寺廟之一，不僅是宗教中心，也是早期移民社群的議事場所。</span>
+                        <span class="en"><span class="item-title">A Rich History:</span> Founded in 1738, it's one of Taipei's oldest temples, serving as both a religious and community center for early Chinese settlers.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">神明的集合：</span>主神為觀世音菩薩(Guanyin)，同時供奉超過100尊來自佛教、道教及民間信仰的神明。</span>
+                        <span class="en"><span class="item-title">A Mix of Deities:</span> The main deity is Guanyin (the Bodhisattva of Compassion), but it houses over 100 other gods and goddesses from Buddhist, Taoist, and folk traditions.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">建築之美：</span>精美的中國宮殿式建築，有著全台灣唯一的銅鑄龍柱，屋頂上的剪黏藝術更是華麗絕倫。</span>
+                        <span class="en"><span class="item-title">Architectural Beauty:</span> A masterpiece of classical Chinese architecture, featuring the only pair of bronze dragon pillars in Taiwan and intricate rooftop decorations.</span>
+                    </li>
+                     <li>
+                        <span class="zh"><span class="item-title">浴火重生的奇蹟：</span>二戰時正殿被毀，但觀音神像卻完好無損，使其更添傳奇色彩。</span>
+                        <span class="en"><span class="item-title">Miracle of Resilience:</span> The main hall was destroyed during a WWII air raid, but the statue of Guanyin miraculously survived unscathed, cementing its sacred status.</span>
+                    </li>
+                </ul>
+
+                <h3>
+                    <span class="zh">參拜禮儀小提示</span>
+                    <span class="en">A Guide to Temple Etiquette</span>
+                </h3>
+                 <ul>
+                    <li>
+                        <span class="zh"><span class="item-title">右進左出：</span>從龍門進、虎門出，象徵趨吉避凶。記得不要踩踏門檻！</span>
+                        <span class="en"><span class="item-title">Enter Right, Exit Left:</span> Enter through the "Dragon Door" (right) and exit through the "Tiger Door" (left) for good fortune. Avoid stepping on the threshold.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">保持尊敬：</span>雙手合十，或點香參拜。最重要的是保持一顆尊敬與欣賞的心。</span>
+                        <span class="en"><span class="item-title">Be Respectful:</span> You can pray with your palms together or with incense. The key is to be respectful and appreciative of the sacred space.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">觀察在地文化：</span>可以看看信眾如何擲筊(moon blocks)和求籤(fortune sticks)與神明溝通，非常有趣。</span>
+                        <span class="en"><span class="item-title">Observe Local Culture:</span> Watch how locals use "moon blocks" (bwa bwei) and "fortune sticks" (chim) to communicate with the deities. It's fascinating!</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Huaxi Street Night Market Section -->
+        <section class="section">
+            <div class="section-header">
+                <p class="subtitle">第二站 | Stop 2</p>
+                <h2>
+                    <span class="zh">華西街夜市 & 小王煮瓜</span>
+                    <span class="en">Huaxi St. Night Market & Hsiao Wang Chih Kua</span>
+                </h2>
+            </div>
+            <img src="https://i.imgur.com/eBw8zQc.jpeg" alt="Hsiao Wang Chih Kua's famous braised pork rice" class="section-image">
+            <div class="section-content">
+                <h3>
+                    <span class="zh">從蛇街到米其林美食</span>
+                    <span class="en">From Snake Alley to Michelin Bib Gourmand</span>
+                </h3>
+                <p>
+                    <span class="zh">從龍山寺步行五分鐘，即可抵達台灣第一座觀光夜市。華西街過去以「蛇街」聞名，現已轉型為美食天堂。今晚的目標是連續多年榮獲米其林必比登推介的「小王煮瓜」！</span>
+                    <span class="en">A 5-minute walk from the temple brings us to Taiwan's first-ever tourist night market. Once known as "Snake Alley," Huaxi Street is now a foodie paradise. Our destination tonight is "Hsiao Wang Chih Kua," a legendary eatery awarded the Michelin Bib Gourmand for multiple years.</span>
+                </p>
+                
+                <h3>
+                    <span class="zh">必點菜色推薦</span>
+                    <span class="en">Must-Try Dishes</span>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="zh"><span class="item-title">香菇魯肉飯：</span>被譽為「黑金魯肉飯」，滷汁顏色偏深，鹹中帶甜，入口即化的肥美豬肉是其靈魂。</span>
+                        <span class="en"><span class="item-title">Braised Pork Rice:</span> Known for its signature dark, savory-sweet soy sauce. The fatty pork melts in your mouth and is incredibly flavorful.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">清湯瓜仔肉：</span>招牌湯品。以豬後腿肉與醃漬花瓜燉煮，湯頭清甜爽口，與濃郁的魯肉飯是絕配。</span>
+                        <span class="en"><span class="item-title">Pork and Pickled Cucumber Soup:</span> The signature soup. It's a clear, light, and sweet broth made with pork and pickled cucumbers—a perfect complement to the rich rice dish.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">各式小菜：</span>滷豆腐、滷鴨蛋、滷白菜都吸飽了店家特製的滷汁，非常入味。</span>
+                        <span class="en"><span class="item-title">Side Dishes:</span> Try the braised tofu, duck egg, or cabbage. They are all soaked in the same delicious, signature braising sauce.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Practical Info Section -->
+        <section class="section">
+             <div class="section-header">
+                <h2>
+                    <span class="zh">實用資訊</span>
+                    <span class="en">Practical Info</span>
+                </h2>
             </div>
             <div class="section-content">
-                <div class="bilingual-content">
-                    <div class="lang-section zh">
-                        <h3>🏮 中文介紹</h3>
-                        <p>艋舺龍山寺創建於1738年，是台北市最古老、最著名的寺廟之一，也是台灣重要的文化資產。這座寺廟融合了佛教、道教和民間信仰，主要供奉觀世音菩薩。</p>
-                        <p>龍山寺以其精美的傳統建築藝術聞名，包括華麗的雕刻、彩繪和剪粘工藝。寺廟的建築風格展現了閩南傳統工藝的精髓，每一個細節都充滿了文化意涵。</p>
-                        <p>這裡不僅是信徒祈福的聖地，也是遊客體驗台灣傳統文化的重要景點。每日都有許多虔誠的信徒前來膜拜，香火鼎盛，充滿了濃厚的宗教氛圍。</p>
-                    </div>
-                    <div class="lang-section en">
-                        <h3>🏮 English Introduction</h3>
-                        <p>Longshan Temple, built in 1738, is one of Taipei's oldest and most famous temples, and an important cultural heritage site in Taiwan. This temple combines Buddhism, Taoism, and folk beliefs, primarily worshipping Guanyin (Goddess of Mercy).</p>
-                        <p>The temple is renowned for its exquisite traditional architectural art, including ornate carvings, paintings, and ceramic decorations. The architectural style showcases the essence of Fujian traditional craftsmanship, with every detail filled with cultural significance.</p>
-                        <p>This is not only a sacred place for believers to pray for blessings, but also an important attraction for tourists to experience traditional Taiwanese culture. Every day, many devout believers come to worship, with incense burning brightly, creating a strong religious atmosphere.</p>
-                    </div>
-                </div>
-
-                <div class="image-gallery">
-                    <div class="image-placeholder">
-                        龍山寺正殿<br>Main Hall of Longshan Temple
-                    </div>
-                    <div class="image-placeholder">
-                        精美雕刻藝術<br>Exquisite Carving Art
-                    </div>
-                    <div class="image-placeholder">
-                        香火鼎盛景象<br>Bustling Incense Scene
-                    </div>
-                </div>
-
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <h4>🎯 建築特色<br>Architecture</h4>
-                        <p>閩南傳統工藝<br>Fujian Traditional Crafts</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>🙏 主要供奉<br>Main Deity</h4>
-                        <p>觀世音菩薩<br>Guanyin Bodhisattva</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>📅 歷史<br>History</h4>
-                        <p>創建於1738年<br>Founded in 1738</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>🎨 文化價值<br>Cultural Value</h4>
-                        <p>國家古蹟<br>National Monument</p>
-                    </div>
-                </div>
+                 <ul>
+                    <li>
+                        <span class="zh"><span class="item-title">交通：</span>搭乘捷運板南線 (藍線) 至「龍山寺站」，從 1 號出口出站。</span>
+                        <span class="en"><span class="item-title">Transportation:</span> Take the MRT Bannan Line (Blue Line) to "Longshan Temple Station" and use Exit 1.</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">穿著：</span>建議穿著舒適的鞋子。進入寺廟時，請穿著得體，避免過於暴露。</span>
+                        <span class="en"><span class="item-title">What to Wear:</span> Comfortable shoes are a must. For the temple, please dress modestly (cover shoulders and knees).</span>
+                    </li>
+                    <li>
+                        <span class="zh"><span class="item-title">提醒：</span>夜市大多只收現金，記得帶夠錢。保持好奇心，玩得開心！</span>
+                        <span class="en"><span class="item-title">Tips:</span> Bring cash, as most night market vendors don't accept cards. Be curious and have fun!</span>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <div class="section-header">
-                <h2>華西街夜市 | Huaxi Street Night Market</h2>
-                <p>台北最具特色的夜市之一 | One of Taipei's Most Distinctive Night Markets</p>
-            </div>
-            <div class="section-content">
-                <div class="bilingual-content">
-                    <div class="lang-section zh">
-                        <h3>🍜 中文介紹</h3>
-                        <p>華西街夜市位於萬華區，是台北市最具歷史的夜市之一，成立於1962年。這個夜市以其獨特的「蛇肉」料理聞名，吸引了無數好奇的遊客前來體驗。</p>
-                        <p>夜市內販售各式各樣的傳統台灣小吃，包括滷肉飯、麵線、胡椒餅等經典美食。這裡保留了最原始的夜市風貌，充滿了濃厚的懷舊氛圍。</p>
-                        <p>華西街夜市不僅是美食天堂，也是體驗台灣庶民文化的最佳場所。夜晚時分，霓虹燈閃爍，人聲鼎沸，展現了台北夜生活的獨特魅力。</p>
-                    </div>
-                    <div class="lang-section en">
-                        <h3>🍜 English Introduction</h3>
-                        <p>Huaxi Street Night Market, located in Wanhua District, is one of Taipei's most historic night markets, established in 1962. This night market is famous for its unique "snake meat" cuisine, attracting countless curious tourists to experience it.</p>
-                        <p>The night market sells a variety of traditional Taiwanese snacks, including braised pork rice, oyster vermicelli, pepper buns, and other classic delicacies. It maintains the most original night market atmosphere, filled with a strong nostalgic ambiance.</p>
-                        <p>Huaxi Street Night Market is not only a food paradise but also the best place to experience Taiwanese folk culture. At night, neon lights flicker and voices buzz, showcasing the unique charm of Taipei's nightlife.</p>
-                    </div>
-                </div>
+    </main>
 
-                <div class="image-gallery">
-                    <div class="image-placeholder">
-                        夜市入口牌樓<br>Night Market Entrance
-                    </div>
-                    <div class="image-placeholder">
-                        特色蛇肉料理<br>Specialty Snake Cuisine
-                    </div>
-                    <div class="image-placeholder">
-                        傳統台灣小吃<br>Traditional Taiwanese Snacks
-                    </div>
-                </div>
+    <footer>
+        <p>
+            <span class="zh">祝您有個美好的夜晚！</span>
+            <span class="en">Enjoy your wonderful evening!</span>
+        </p>
+    </footer>
 
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <h4>🐍 特色美食<br>Specialty Food</h4>
-                        <p>蛇肉料理<br>Snake Cuisine</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>🕐 營業時間<br>Operating Hours</h4>
-                        <p>晚上6點後<br>After 6 PM</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>📍 地理位置<br>Location</h4>
-                        <p>萬華區華西街<br>Huaxi St, Wanhua</p>
-                    </div>
-                    <div class="highlight-item">
-                        <h4>🎪 文化體驗<br>Cultural Experience</h4>
-                        <p>懷舊夜市風情<br>Nostalgic Market Atmosphere</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <h2>遊覽建議 | Travel Tips</h2>
-            </div>
-            <div class="section-content">
-                <div class="bilingual-content">
-                    <div class="lang-section zh">
-                        <h3>🚇 交通方式</h3>
-                        <p><strong>捷運：</strong>搭乘板南線至龍山寺站，1號出口步行約3分鐘即可到達龍山寺，華西街夜市就在附近。</p>
-                        <p><strong>公車：</strong>搭乘多線公車至龍山寺站下車。</p>
-                        
-                        <h3>⏰ 最佳遊覽時間</h3>
-                        <p><strong>龍山寺：</strong>上午6:00-晚上10:00，建議避開週末人潮。</p>
-                        <p><strong>華西街夜市：</strong>晚上6:00-深夜12:00，晚上8-10點最熱鬧。</p>
-                        
-                        <h3>💡 遊覽小貼士</h3>
-                        <p>• 參觀龍山寺時請保持肅靜，尊重宗教文化</p>
-                        <p>• 夜市內攤販眾多，建議先逛一圈再決定用餐</p>
-                        <p>• 可以一次遊覽兩個景點，體驗傳統與現代的結合</p>
-                    </div>
-                    <div class="lang-section en">
-                        <h3>🚇 Transportation</h3>
-                        <p><strong>MRT:</strong> Take the Bannan Line to Longshan Temple Station, 3-minute walk from Exit 1 to reach Longshan Temple, with Huaxi Street Night Market nearby.</p>
-                        <p><strong>Bus:</strong> Take various bus lines to Longshan Temple Station.</p>
-                        
-                        <h3>⏰ Best Visiting Time</h3>
-                        <p><strong>Longshan Temple:</strong> 6:00 AM - 10:00 PM, avoid weekend crowds.</p>
-                        <p><strong>Huaxi Street Night Market:</strong> 6:00 PM - 12:00 AM, busiest from 8-10 PM.</p>
-                        
-                        <h3>💡 Travel Tips</h3>
-                        <p>• Keep quiet and respect religious culture when visiting the temple</p>
-                        <p>• Browse the night market first before deciding where to eat</p>
-                        <p>• Visit both attractions in one trip to experience traditional and modern fusion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>© 2024 萬華文化之旅 | Wanhua Cultural Journey</p>
-            <p>體驗台北最authentic的文化風情 | Experience Taipei's Most Authentic Cultural Atmosphere</p>
-        </div>
-    </div>
 </body>
 </html>
