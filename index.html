@@ -1,468 +1,498 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>艋舺終極探索 | The Ultimate Monga Tour</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- Global Styles & Variables --- */
-        :root {
-            --brand-red: #B92B27;
-            --brand-gold: #DAA520;
-            --dark-bg: #121212;
-            --card-bg: #1E1E1E;
-            --text-primary: #EAEAEA;
-            --text-secondary: #B3B3B3;
-            --divider: #333333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>艋舺終極探索 | The Ultimate Monga Tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+      /* --- Global Styles & Variables --- */
+      :root {
+        --brand-red: #b92b27;
+        --brand-gold: #daa520;
+        --dark-bg: #121212;
+        --card-bg: #1e1e1e;
+        --text-primary: #eaeaea;
+        --text-secondary: #b3b3b3;
+        --divider: #333333;
+      }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            margin: 0;
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+        margin: 0;
+        background-color: var(--dark-bg);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
 
-        /* --- Typography --- */
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+      /* --- Typography --- */
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
 
-        .lang-group .zh {
-            font-weight: 500;
-            line-height: 1.7;
-            margin-bottom: 4px;
-        }
+      .lang-group .zh {
+        font-weight: 500;
+        line-height: 1.7;
+        margin-bottom: 4px;
+      }
 
-        .lang-group .en {
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            line-height: 1.6;
-        }
+      .lang-group .en {
+        color: var(--text-secondary);
+        font-size: 0.9em;
+        line-height: 1.6;
+      }
 
-        /* --- Hero Section --- */
+      /* --- Hero Section --- */
+      .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 85vh;
+        padding: 40px 25px;
+        color: white;
+        background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(18, 18, 18, 1) 95%
+          ),
+          url("https://ak-d.tripcdn.com/images/0356u12000drfblqc4AB0_C_1080_607.jpg_.webp");
+        background-size: cover;
+        background-position: center 70%;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+        color: var(--brand-gold);
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      /* --- Main Content Container --- */
+      .main-container {
+        padding: 0 15px 30px 15px;
+      }
+
+      /* --- Itinerary Section --- */
+      .itinerary {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        margin-top: -50px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .itinerary h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 25px;
+        color: var(--text-primary);
+      }
+
+      .timeline {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+        width: 2px;
+        background: linear-gradient(var(--brand-red), var(--brand-gold));
+        z-index: 1;
+      }
+
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: var(--dark-bg);
+        border: 2px solid var(--brand-red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-right: 20px;
+        z-index: 2;
+      }
+
+      .timeline-item:last-child .timeline-icon {
+        border-color: var(--brand-gold);
+      }
+
+      .timeline-content .time {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .timeline-content .title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+      .timeline-content .title .en {
+        font-size: 0.9em;
+      }
+
+      /* --- Content Card --- */
+      .content-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        margin-top: 30px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .content-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-header {
+        padding: 25px;
+      }
+
+      .card-header .subtitle {
+        color: var(--brand-red);
+        font-weight: 700;
+        margin: 0 0 5px 0;
+      }
+
+      .card-header h2 {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 25px;
+      }
+
+      .card-body h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        color: var(--brand-gold);
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      .card-body h3:first-child {
+        margin-top: 0;
+      }
+
+      .card-body h3 .icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }
+
+      .card-body ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .card-body li {
+        display: flex;
+        margin-bottom: 18px;
+      }
+
+      .card-body li .icon {
+        margin-right: 15px;
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+
+      .list-item-title {
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      /* --- Footer --- */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 40px;
+      }
+
+      footer p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      /* --- Desktop Responsive --- */
+      @media (min-width: 992px) {
         .hero {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 85vh;
-            padding: 40px 25px;
-            color: white;
-            background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(18,18,18,1) 95%), url('https://i.imgur.com/4Q4yZAd.jpeg');
-            background-size: cover;
-            background-position: center 70%;
+          height: 70vh;
+          padding: 80px;
         }
-
         .hero h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            line-height: 1.2;
+          font-size: 4.5rem;
         }
-
         .hero .subtitle {
-            font-size: 1.2rem;
-            color: var(--brand-gold);
-            margin-top: 10px;
-            font-weight: 500;
+          font-size: 1.5rem;
         }
 
-        /* --- Main Content Container --- */
         .main-container {
-            padding: 0 15px 30px 15px;
+          max-width: 900px;
+          margin: auto;
+          padding: 0 20px 50px 20px;
         }
 
-        /* --- Itinerary Section --- */
         .itinerary {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 25px;
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          padding: 40px;
         }
 
-        .itinerary h2 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 25px;
-            color: var(--text-primary);
-        }
-
-        .timeline {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            position: relative;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            bottom: 10px;
-            left: 10px;
-            width: 2px;
-            background: linear-gradient(var(--brand-red), var(--brand-gold));
-            z-index: 1;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-icon {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background-color: var(--dark-bg);
-            border: 2px solid var(--brand-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-right: 20px;
-            z-index: 2;
-        }
-        
-        .timeline-item:last-child .timeline-icon {
-            border-color: var(--brand-gold);
-        }
-
-        .timeline-content .time {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-content .title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin: 0;
-        }
-        .timeline-content .title .en {
-            font-size: 0.9em;
-        }
-
-
-        /* --- Content Card --- */
         .content-card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            margin-top: 30px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: row;
+          margin-top: 40px;
         }
 
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        
-        .card-header {
-            padding: 25px;
+        .content-card.reverse {
+          flex-direction: row-reverse;
         }
 
-        .card-header .subtitle {
-            color: var(--brand-red);
-            font-weight: 700;
-            margin: 0 0 5px 0;
+        .card-media,
+        .card-text-content {
+          width: 50%;
         }
 
-        .card-header h2 {
-            font-size: 2rem;
-            margin: 0;
-            line-height: 1.2;
-        }
-        
         .card-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+          height: 100%;
+        }
+
+        .card-header {
+          display: none; /* Hide header on desktop, merge into body */
         }
 
         .card-body {
-            padding: 25px;
-        }
-        
-        .card-body h3 {
-            display: flex;
-            align-items: center;
-            font-size: 1.4rem;
-            color: var(--brand-gold);
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        .card-body h3:first-child {
-            margin-top: 0;
-        }
-        
-        .card-body h3 .icon {
-            font-size: 1.2rem;
-            margin-right: 10px;
+          padding: 40px;
         }
 
-        .card-body ul {
-            list-style: none;
-            padding: 0;
+        /* Show title in card body on desktop */
+        .card-body .desktop-title {
+          display: block;
+          margin-bottom: 30px;
         }
 
-        .card-body li {
-            display: flex;
-            margin-bottom: 18px;
+        .desktop-title .subtitle {
+          color: var(--brand-red);
+          font-weight: 700;
+          margin: 0 0 5px 0;
         }
-        
-        .card-body li .icon {
-            margin-right: 15px;
-            font-size: 1.2rem;
-            margin-top: 5px;
+        .desktop-title h2 {
+          font-size: 2.2rem;
+          margin: 0;
+          line-height: 1.2;
         }
-        
-        .list-item-title {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+      }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin: 0;
-            color: var(--text-secondary);
-        }
-        
-        /* --- Desktop Responsive --- */
-        @media (min-width: 992px) {
-            .hero {
-                height: 70vh;
-                padding: 80px;
-            }
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-            .hero .subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .main-container {
-                max-width: 900px;
-                margin: auto;
-                padding: 0 20px 50px 20px;
-            }
-            
-            .itinerary {
-                padding: 40px;
-            }
-
-            .content-card {
-                display: flex;
-                flex-direction: row;
-                margin-top: 40px;
-            }
-
-            .content-card.reverse {
-                flex-direction: row-reverse;
-            }
-            
-            .card-media, .card-text-content {
-                width: 50%;
-            }
-
-            .card-image {
-                height: 100%;
-            }
-
-            .card-header {
-                display: none; /* Hide header on desktop, merge into body */
-            }
-            
-            .card-body {
-                padding: 40px;
-            }
-
-            /* Show title in card body on desktop */
-            .card-body .desktop-title {
-                display: block;
-                margin-bottom: 30px;
-            }
-
-            .desktop-title .subtitle {
-                 color: var(--brand-red);
-                 font-weight: 700;
-                 margin: 0 0 5px 0;
-            }
-             .desktop-title h2 {
-                font-size: 2.2rem;
-                margin: 0;
-                line-height: 1.2;
-            }
-        }
-        
-        .desktop-title {
-            display: none;
-        }
-
-    </style>
+      .desktop-title {
+        display: none;
+      }
+  </style>
 </head>
 <body>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1>
-                <span class="zh">艋舺終極探索</span><br>
-                <span class="en">The Ultimate Monga Tour</span>
-            </h1>
-            <p class="subtitle">
-                <span class="zh">一趟為靈魂與味蕾喝采的旅程</span>
-                <span class="en">A night of soul, history, and flavor</span>
-            </p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1><span class="zh">艋舺探索</span><br>
+      <span class="en">The Monga Tour</span></h1>
+      <p class="subtitle"><span class="zh">一趟為靈魂與味蕾喝采的旅程</span> <span class="en">A night of soul, history, and flavor</span></p>
+    </div>
+  </header>
+  <main class="main-container">
+    <section class="itinerary">
+      <h2><span class="zh">今晚的行程</span> <span class="en">Tonight's Itinerary</span></h2>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-icon">
+            🏛️
+          </div>
+          <div class="timeline-content">
+            <p class="time">7:00 PM</p>
+            <p class="title"><span class="zh">心靈沉澱：龍山寺</span> <span class="en">Spiritual Start: Lungshan Temple</span></p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-icon">
+            🍜
+          </div>
+          <div class="timeline-content">
+            <p class="title"><span class="zh">美食探險：華西街與小王煮瓜</span> <span class="en">Culinary Adventure: Huaxi St. & Hsiao Wang</span></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <article class="content-card">
+      <div class="card-media">
+      <div class="card-header">
+        <p class="subtitle">STOP 1</p>
+        <h2><span class="zh">艋舺龍山寺</span><br>
+        <span class="en">Lungshan Temple</span></h2>
+      </div><img src="https://imgcdn.cna.com.tw/www/WebPhotos/1024/20230814/771x1024_wmky_0_C20230814000036.jpg" alt="Intricate carvings on the roof of Lungshan Temple" class="card-image"></div>
+      <div class="card-text-content">
+        <div class="card-body">
+          <div class="desktop-title">
+            <p class="subtitle">STOP 1</p>
+            <h2><span class="zh">艋舺龍山寺</span><br>
+            <span class="en">Lungshan Temple</span></h2>
+          </div>
+          <div class="lang-group">
+            <p class="zh">踏入台北的心臟，感受近300年的歷史脈動。這裡不只是一座寺廟，更是一間「神的百貨公司」，是信仰與藝術的完美結晶。</p>
+            <p class="en">Step into the heart of old Taipei and feel nearly 300 years of history. This isn't just a temple; it's a "department store of deities" and a stunning fusion of faith and art.</p>
+          </div>
+          <h3><span class="icon">✨</span><span class="zh">觀賞重點</span> <span class="en">/ Don't Miss</span></h3>
+          <ul>
+            <li>
+              <span class="icon">🐲</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">銅鑄龍柱：</span>全台唯一的銅製龍柱，盤踞在正殿前，氣勢非凡。</p>
+                <p class="en"><span class="list-item-title">Bronze Dragon Pillars:</span> The only pair in Taiwan, guarding the main hall with majestic power.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">🙏</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">月下老人：</span>想求姻緣嗎？這裡的月老極富盛名，是年輕人的熱門朝聖地！</p>
+                <p class="en"><span class="list-item-title">The Matchmaker God:</span> Looking for love? The "Yue Lao" here is famously effective and a popular spot for singles!</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">🎨</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">屋頂藝術：</span>抬頭看！屋頂上的彩色剪黏和交趾陶，訴說著一則又一則的傳奇故事。</p>
+                <p class="en"><span class="list-item-title">Rooftop Artistry:</span> Look up! The colorful mosaic-like figures tell countless legendary stories.</p>
+              </div>
+            </li>
+          </ul>
+          <h3><span class="icon">💡</span><span class="zh">參拜體驗四步驟</span> <span class="en" style="width: 100%">/ A 4-Step Guide</span></h3>
+          <ul>
+            <li>
+              <span class="icon">➡️</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">入龍喉：</span>從右邊的龍門進入，象徵一步躍龍門。</p>
+                <p class="en"><span class="list-item-title">Enter the Dragon:</span> Come in through the right gate (Dragon Gate) for good fortune.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">💧</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">淨心淨手：</span>在入口旁的瀑布前靜心，感受水的清涼。</p>
+                <p class="en"><span class="list-item-title">Cleanse & Purify:</span> Pause by the waterfall at the entrance to clear your mind and hands.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">🙇</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">誠心參拜：</span>先拜天公，再拜主神觀世音菩薩。但心誠則靈最重要。</p>
+                <p class="en"><span class="list-item-title">Pray with Heart:</span> Start with the Sky God, then the main deity Guanyin. A sincere heart is what matters most.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">⬅️</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">出虎口：</span>從左邊的虎門離開，帶走厄運，留下好運。</p>
+                <p class="en"><span class="list-item-title">Exit the Tiger:</span> Leave through the left gate (Tiger Gate) to ward off misfortune.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-    </header>
-
-    <main class="main-container">
-
-        <section class="itinerary">
-            <h2>
-                <span class="zh">今晚的行程</span>
-                <span class="en">Tonight's Itinerary</span>
-            </h2>
-            <ul class="timeline">
-                <li class="timeline-item">
-                    <div class="timeline-icon">🏛️</div>
-                    <div class="timeline-content">
-                        <p class="time">5:30 PM - 7:00 PM</p>
-                        <p class="title">
-                            <span class="zh">心靈沉澱：龍山寺</span>
-                            <span class="en">Spiritual Start: Lungshan Temple</span>
-                        </p>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <div class="timeline-icon">🍜</div>
-                    <div class="timeline-content">
-                        <p class="time">7:00 PM onwards</p>
-                        <p class="title">
-                            <span class="zh">美食探險：華西街與小王煮瓜</span>
-                            <span class="en">Culinary Adventure: Huaxi St. & Hsiao Wang</span>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Lungshan Temple Card -->
-        <article class="content-card">
-            <div class="card-media">
-                <div class="card-header">
-                    <p class="subtitle">STOP 1</p>
-                    <h2>
-                        <span class="zh">艋舺龍山寺</span><br>
-                        <span class="en">Lungshan Temple</span>
-                    </h2>
-                </div>
-                <img src="https://i.imgur.com/gK49sSM.jpeg" alt="Intricate carvings on the roof of Lungshan Temple" class="card-image">
-            </div>
-            <div class="card-text-content">
-                <div class="card-body">
-                    <div class="desktop-title">
-                        <p class="subtitle">STOP 1</p>
-                        <h2>
-                            <span class="zh">艋舺龍山寺</span><br>
-                            <span class="en">Lungshan Temple</span>
-                        </h2>
-                    </div>
-                    <div class="lang-group">
-                        <p class="zh">踏入台北的心臟，感受近300年的歷史脈動。這裡不只是一座寺廟，更是一間「神的百貨公司」，是信仰與藝術的完美結晶。</p>
-                        <p class="en">Step into the heart of old Taipei and feel nearly 300 years of history. This isn't just a temple; it's a "department store of deities" and a stunning fusion of faith and art.</p>
-                    </div>
-                    
-                    <h3><span class="icon">✨</span><span class="zh">觀賞重點</span><span class="en"> / Don't Miss</span></h3>
-                    <ul>
-                        <li><span class="icon">🐲</span><div class="lang-group"><p class="zh"><span class="list-item-title">銅鑄龍柱：</span>全台唯一的銅製龍柱，盤踞在正殿前，氣勢非凡。</p><p class="en"><span class="list-item-title">Bronze Dragon Pillars:</span> The only pair in Taiwan, guarding the main hall with majestic power.</p></div></li>
-                        <li><span class="icon">🙏</span><div class="lang-group"><p class="zh"><span class="list-item-title">月下老人：</span>想求姻緣嗎？這裡的月老極富盛名，是年輕人的熱門朝聖地！</p><p class="en"><span class="list-item-title">The Matchmaker God:</span> Looking for love? The "Yue Lao" here is famously effective and a popular spot for singles!</p></div></li>
-                        <li><span class="icon">🎨</span><div class="lang-group"><p class="zh"><span class="list-item-title">屋頂藝術：</span>抬頭看！屋頂上的彩色剪黏和交趾陶，訴說著一則又一則的傳奇故事。</p><p class="en"><span class="list-item-title">Rooftop Artistry:</span> Look up! The colorful mosaic-like figures tell countless legendary stories.</p></div></li>
-                    </ul>
-
-                    <h3><span class="icon">💡</span><span class="zh">參拜體驗四步驟</span><span class="en"> / A 4-Step Guide</span></h3>
-                    <ul>
-                        <li><span class="icon">➡️</span><div class="lang-group"><p class="zh"><span class="list-item-title">入龍喉：</span>從右邊的龍門進入，象徵一步躍龍門。</p><p class="en"><span class="list-item-title">Enter the Dragon:</span> Come in through the right gate (Dragon Gate) for good fortune.</p></div></li>
-                        <li><span class="icon">💧</span><div class="lang-group"><p class="zh"><span class="list-item-title">淨心淨手：</span>在入口旁的瀑布前靜心，感受水的清涼。</p><p class="en"><span class="list-item-title">Cleanse & Purify:</span> Pause by the waterfall at the entrance to clear your mind and hands.</p></div></li>
-                        <li><span class="icon">🙇</span><div class="lang-group"><p class="zh"><span class="list-item-title">誠心參拜：</span>先拜天公，再拜主神觀世音菩薩。但心誠則靈最重要。</p><p class="en"><span class="list-item-title">Pray with Heart:</span> Start with the Sky God, then the main deity Guanyin. A sincere heart is what matters most.</p></div></li>
-                        <li><span class="icon">⬅️</span><div class="lang-group"><p class="zh"><span class="list-item-title">出虎口：</span>從左邊的虎門離開，帶走厄運，留下好運。</p><p class="en"><span class="list-item-title">Exit the Tiger:</span> Leave through the left gate (Tiger Gate) to ward off misfortune.</p></div></li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-        
-        <!-- Huaxi Street Card -->
-        <article class="content-card reverse">
-            <div class="card-media">
-                <div class="card-header">
-                    <p class="subtitle">STOP 2</p>
-                    <h2>
-                        <span class="zh">華西街 & 小王煮瓜</span><br>
-                        <span class="en">Huaxi St. & Hsiao Wang</span>
-                    </h2>
-                </div>
-                <img src="https://i.imgur.com/eBw8zQc.jpeg" alt="A delicious bowl of braised pork rice from Hsiao Wang Chih Kua" class="card-image">
-            </div>
-            <div class="card-text-content">
-                <div class="card-body">
-                    <div class="desktop-title">
-                        <p class="subtitle">STOP 2</p>
-                        <h2>
-                            <span class="zh">華西街 & 小王煮瓜</span><br>
-                            <span class="en">Huaxi St. & Hsiao Wang</span>
-                        </h2>
-                    </div>
-                    <div class="lang-group">
-                        <p class="zh">告別莊嚴，我們走入人間煙火。穿過標誌性的紅色牌樓，華西街的傳奇老店「小王煮瓜」正在等著我們。準備好迎接米其林認證的台灣味了嗎？</p>
-                        <p class="en">Leaving serenity behind, we dive into the lively world of a night market. Pass under the iconic red archway to find our goal: "Hsiao Wang Chih Kua," a legendary, Michelin-approved taste of Taiwan.</p>
-                    </div>
-
-                    <h3><span class="icon">😋</span><span class="zh">點餐秘訣</span><span class="en"> / How to Order Like a Pro</span></h3>
-                    <ul>
-                        <li><span class="icon">🍚</span><div class="lang-group"><p class="zh"><span class="list-item-title">香菇魯肉飯 (必點)：</span>深色的「黑金」滷汁是它的招牌。肥瘦相間的豬肉充滿膠質，鹹甜滋味完美扒在每一粒米飯上。</p><p class="en"><span class="list-item-title">Braised Pork Rice (Must-have):</span> The signature "black gold" sauce is iconic. Fatty pork belly provides a rich, collagen-packed, savory-sweet flavor that coats every grain of rice.</p></div></li>
-                        <li><span class="icon">🥣</span><div class="lang-group"><p class="zh"><span class="list-item-title">清湯瓜仔肉 (絕配)：</span>這碗湯是魯肉飯的靈魂伴侶。醃瓜的甘甜清爽了味蕾，讓你還能再戰一碗飯！</p><p class="en"><span class="list-item-title">Pork & Cucumber Soup (Perfect Match):</span> The soulmate to the rich rice. The pickled cucumber's sweetness cleanses your palate, making you ready for another bite.</p></div></li>
-                        <li><span class="icon">🥚</span><div class="lang-group"><p class="zh"><span class="list-item-title">滷鴨蛋 & 滷豆腐 (升級)：</span>讓這些小菜吸滿濃郁的滷汁，是體驗「小王」風味宇宙的完整方式。</p><p class="en"><span class="list-item-title">Braised Egg & Tofu (Level up):</span> Let these sides, soaked in the same amazing sauce, complete your flavor experience.</p></div></li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-    </main>
-
-    <footer>
-        <p>
-            <span class="zh">祝你有個難忘的艋舺之夜！</span><br>
-            <span class="en">Have an unforgettable night in Monga!</span>
-        </p>
-    </footer>
-
+      </div>
+    </article>
+    <article class="content-card reverse">
+      <div class="card-media">
+      <div class="card-header">
+        <p class="subtitle">STOP 2</p>
+        <h2><span class="zh">華西街 & 小王煮瓜</span><br>
+        <span class="en">Huaxi St. & Hsiao Wang</span></h2>
+      </div><img src="https://hui12.tw/wp-content/uploads/2024/01/5-768x1024.jpg" alt="A delicious bowl of braised pork rice from Hsiao Wang Chih Kua" class="card-image"></div>
+      <div class="card-text-content">
+        <div class="card-body">
+          <div class="desktop-title">
+            <p class="subtitle">STOP 2</p>
+            <h2><span class="zh">華西街 & 小王煮瓜</span><br>
+            <span class="en">Huaxi St. & Hsiao Wang</span></h2>
+          </div>
+          <div class="lang-group">
+            <p class="zh">告別莊嚴，我們走入人間煙火。穿過標誌性的紅色牌樓，華西街的傳奇老店「小王煮瓜」正在等著我們。準備好迎接米其林認證的台灣味了嗎？</p>
+            <p class="en">Leaving serenity behind, we dive into the lively world of a night market. Pass under the iconic red archway to find our goal: "Hsiao Wang Chih Kua," a legendary, Michelin-approved taste of Taiwan.</p>
+          </div>
+          <h3><span class="icon">😋</span><span class="zh">點餐秘訣</span> <span class="en">/ How to Order Like a Pro</span></h3>
+          <ul>
+            <li>
+              <span class="icon">🍚</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">香菇魯肉飯 (必點)：</span>深色的「黑金」滷汁是它的招牌。肥瘦相間的豬肉充滿膠質，鹹甜滋味完美扒在每一粒米飯上。</p>
+                <p class="en"><span class="list-item-title">Braised Pork Rice (Must-have):</span> The signature "black gold" sauce is iconic. Fatty pork belly provides a rich, collagen-packed, savory-sweet flavor that coats every grain of rice.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">🥣</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">清湯瓜仔肉 (絕配)：</span>這碗湯是魯肉飯的靈魂伴侶。醃瓜的甘甜清爽了味蕾，讓你還能再戰一碗飯！</p>
+                <p class="en"><span class="list-item-title">Pork & Cucumber Soup (Perfect Match):</span> The soulmate to the rich rice. The pickled cucumber's sweetness cleanses your palate, making you ready for another bite.</p>
+              </div>
+            </li>
+            <li>
+              <span class="icon">🥚</span>
+              <div class="lang-group">
+                <p class="zh"><span class="list-item-title">滷鴨蛋 & 滷豆腐 (升級)：</span>讓這些小菜吸滿濃郁的滷汁，是體驗「小王」風味宇宙的完整方式。</p>
+                <p class="en"><span class="list-item-title">Braised Egg & Tofu (Level up):</span> Let these sides, soaked in the same amazing sauce, complete your flavor experience.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p><span class="zh">祝你有個難忘的艋舺之夜！</span><br>
+    <span class="en">Have an unforgettable night in Monga!</span></p>
+  </footer>
 </body>
 </html>
